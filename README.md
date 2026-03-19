@@ -24,34 +24,38 @@ Efficiently processing millions of rows of raw trip data requires a scalable arc
 
 ```
 nyc-taxi-medallion-fabric/
-├── notebooks/        # PySpark notebooks for each Medallion stage
+├── notebooks/                  # PySpark notebooks for each Medallion stage
 │   ├── 01_Ingestion_Bronze.ipynb
 │   ├── 02_Transformation_Silver.ipynb
 │   └── 03_Aggregation_Gold.ipynb
-├── images/           # Snapshots of the architecture and data results
-├── data/             # Reference to the NYC TLC Public Data source
-└── README.md         # Project overview
+├── images/                     # Snapshots of the architecture and data results
+├── data/                       # Reference to the NYC TLC Public Data source
+└── README.md                   # Project overview
 ```
 
 ---
 
 ## 🏗️ Architecture & Snapshots
 
-
-
 ### 🥉 Bronze Layer: Ingestion
+
 Raw parquet data is pulled from the NYC TLC repository, landed in the Lakehouse 'Files' section, and appended to a Delta table with ingestion metadata.
-📸 **Snapshot**:  
+
+📸 **Snapshot**:
 ![Bronze Ingestion](./images/01_bronze_ingestion_success.png)
 
 ### 🥈 Silver Layer: Transformation & Merge
+
 Data cleaning and schema enforcement. Implements a **Delta Merge (Upsert)** logic based on `VendorID` and `tpep_pickup_datetime` to prevent duplicates.
-📸 **Snapshot**:  
+
+📸 **Snapshot**:
 ![Silver Merge](./images/02_silver_incremental_merge.png)
 
 ### 🥇 Gold Layer: Business Aggregation
+
 Final business-ready summary table grouping performance by date and vendor, calculating total revenue, trip counts, and average distances.
-📸 **Snapshot**:  
+
+📸 **Snapshot**:
 ![Gold Summary](./images/03_gold_daily_summary_preview.png)
 
 ---
@@ -66,7 +70,8 @@ Final business-ready summary table grouping performance by date and vendor, calc
 
 ## 🏅 Author & Certifications
 
-**Felipe Castro** Data Analytics Engineer @ EPAM Systems
+**Felipe Castro**
+Senior Data Analytics Engineer @ EPAM Systems
 
 - 🏅 **[DP-700: Microsoft Certified: Fabric Data Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/FelipeCastro-8026/96572499DF943EBC?sharingId=13D660F56C1DFFA3)**
 - 🏅 **[DP-600: Microsoft Certified: Fabric Analytics Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/FelipeCastro-8026/6C5A2F5A8A5864FC?sharingId=13D660F56C1DFFA3)**
@@ -74,9 +79,15 @@ Final business-ready summary table grouping performance by date and vendor, calc
 
 ---
 
-## 🧰 Tools & Libraries
+## 🚀 Tools & Tech
 
+![Microsoft Fabric](https://img.shields.io/badge/Microsoft%20Fabric-000000?style=flat&logo=Microsoft&logoColor=white)
+![Azure OpenAI](https://img.shields.io/badge/Azure%20OpenAI-0078D4?style=flat&logo=Microsoft%20Azure&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![Spark](https://img.shields.io/badge/Apache_Spark-E25A1C?style=flat&logo=apachespark&logoColor=white)
+![PySpark](https://img.shields.io/badge/PySpark-E34F26?style=flat&logo=apachespark&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-005C84?style=flat&logo=postgresql&logoColor=white)
+![Delta Lake](https://img.shields.io/badge/Delta%20Lake-00ADD8?style=flat&logo=databricks&logoColor=white)
+![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-017CEE?style=flat&logo=apacheairflow&logoColor=white)
+![Generative AI](https://img.shields.io/badge/Generative%20AI-412991?style=flat&logo=openai&logoColor=white)
 ![Azure](https://img.shields.io/badge/Microsoft_Azure-0078D4?style=flat&logo=microsoftazure&logoColor=white)
-![DeltaLake](https://img.shields.io/badge/Delta_Lake-00ADD8?style=flat)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)
